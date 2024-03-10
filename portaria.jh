@@ -1,0 +1,36 @@
+
+
+entity OM {
+	nome String required maxlength(100),
+    sigla String required maxlength(30),
+    codom Integer
+}
+
+entity PostoGraduacao(posto) {
+	descricao String required,
+    sigla String required
+}
+
+entity Militar {
+    identidade Integer required,
+    cpf Integer required,
+    postoGraduacao String required,
+	nome String required,
+    nomeGuerra String required,
+	email String required,
+    foto Blob required
+}
+
+
+
+relationship ManyToOne {	
+    Militar{posto(sigla) required} to PostoGraduacao{militar(nomeGuerra) required},
+    Militar{om(sigla) required} to OM{militar(nomeGuerra) required},
+}
+
+// Definir opções de paginação
+paginate Militar, OM with pagination
+
+// Defina as opções de serviço para todos, exceto alguns
+service all with serviceImpl except Militar, OM, PostoGraduacao
+
