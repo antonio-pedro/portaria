@@ -1,0 +1,79 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (militar) {
+      <div>
+        <h2 data-cy="militarDetailsHeading"><span jhiTranslate="portariaApp.militar.detail.title">Militar</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">Código</span></dt>
+          <dd>
+            <span>{{ militar.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="portariaApp.militar.identidade">Identidade</span></dt>
+          <dd>
+            <span>{{ militar.identidade }}</span>
+          </dd>
+          <dt><span jhiTranslate="portariaApp.militar.cpf">Cpf</span></dt>
+          <dd>
+            <span>{{ militar.cpf }}</span>
+          </dd>
+          <dt><span jhiTranslate="portariaApp.militar.postoGraduacao">Posto Graduacao</span></dt>
+          <dd>
+            <span>{{ militar.postoGraduacao }}</span>
+          </dd>
+          <dt><span jhiTranslate="portariaApp.militar.nome">Nome</span></dt>
+          <dd>
+            <span>{{ militar.nome }}</span>
+          </dd>
+          <dt><span jhiTranslate="portariaApp.militar.nomeGuerra">Nome Guerra</span></dt>
+          <dd>
+            <span>{{ militar.nomeGuerra }}</span>
+          </dd>
+          <dt><span jhiTranslate="portariaApp.militar.email">Email</span></dt>
+          <dd>
+            <span>{{ militar.email }}</span>
+          </dd>
+          <dt><span jhiTranslate="portariaApp.militar.foto">Foto</span></dt>
+          <dd>
+            @if (militar.foto) {
+              <div>
+                <a (click)="openFile(militar.foto, militar.fotoContentType)" jhiTranslate="entity.action.open">Abrir</a>
+                {{ militar.fotoContentType }}, {{ byteSize(militar.foto) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="portariaApp.militar.posto">Posto</span></dt>
+          <dd>
+            @if (militar.posto) {
+              <div>
+                <a [routerLink]="['/posto-graduacao', militar.posto.id, 'view']">{{ militar.posto.sigla }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="portariaApp.militar.om">Om</span></dt>
+          <dd>
+            @if (militar.om) {
+              <div>
+                <a [routerLink]="['/om', militar.om.id, 'view']">{{ militar.om.sigla }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+        </button>
+
+        <button type="button" [routerLink]="['/militar', militar.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

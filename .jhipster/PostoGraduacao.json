@@ -1,0 +1,32 @@
+{
+  "annotations": {
+    "changelogDate": "20240310180245"
+  },
+  "applications": "*",
+  "entityTableName": "posto",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sigla",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "PostoGraduacao",
+  "relationships": [
+    {
+      "otherEntityField": "nomeGuerra",
+      "otherEntityName": "militar",
+      "otherEntityRelationshipName": "posto",
+      "relationshipName": "militar",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no"
+}

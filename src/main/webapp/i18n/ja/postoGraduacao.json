@@ -1,0 +1,26 @@
+{
+  "portariaApp": {
+    "postoGraduacao": {
+      "home": {
+        "title": "PostoGraduacaos",
+        "refreshListLabel": "リストの更新",
+        "createLabel": "Posto Graduacao の作成",
+        "createOrEditLabel": "Posto Graduacaoの作成または編集",
+        "notFound": "Posto Graduacaos が見つかりません。"
+      },
+      "created": "新しい Posto Graduacao がID {{ param }} で作成されました。",
+      "updated": "ID {{ param }} の Posto Graduacao が更新されました。",
+      "deleted": "ID {{ param }} の Posto Graduacao が削除されました。",
+      "delete": {
+        "question": "Posto Graduacao {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Posto Graduacao"
+      },
+      "id": "ID",
+      "descricao": "Descricao",
+      "sigla": "Sigla",
+      "militar": "Militar"
+    }
+  }
+}

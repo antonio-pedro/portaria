@@ -1,0 +1,27 @@
+{
+  "portariaApp": {
+    "oM": {
+      "home": {
+        "title": "OMS",
+        "refreshListLabel": "リストの更新",
+        "createLabel": "OM の作成",
+        "createOrEditLabel": "OMの作成または編集",
+        "notFound": "OMS が見つかりません。"
+      },
+      "created": "新しい OM がID {{ param }} で作成されました。",
+      "updated": "ID {{ param }} の OM が更新されました。",
+      "deleted": "ID {{ param }} の OM が削除されました。",
+      "delete": {
+        "question": "OM {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "OM"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "sigla": "Sigla",
+      "codom": "Codom",
+      "militar": "Militar"
+    }
+  }
+}

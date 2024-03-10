@@ -1,0 +1,68 @@
+{
+  "annotations": {
+    "changelogDate": "20240310180345"
+  },
+  "applications": "*",
+  "entityTableName": "militar",
+  "fields": [
+    {
+      "fieldName": "identidade",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "cpf",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "postoGraduacao",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nomeGuerra",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "foto",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Militar",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "sigla",
+      "otherEntityName": "postoGraduacao",
+      "otherEntityRelationshipName": "militar",
+      "relationshipName": "posto",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "sigla",
+      "otherEntityName": "oM",
+      "otherEntityRelationshipName": "militar",
+      "relationshipName": "om",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no"
+}

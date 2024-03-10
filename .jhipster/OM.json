@@ -1,0 +1,39 @@
+{
+  "annotations": {
+    "changelogDate": "20240310180145"
+  },
+  "applications": "*",
+  "entityTableName": "om",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "sigla",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "codom",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "OM",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "nomeGuerra",
+      "otherEntityName": "militar",
+      "otherEntityRelationshipName": "om",
+      "relationshipName": "militar",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no"
+}
