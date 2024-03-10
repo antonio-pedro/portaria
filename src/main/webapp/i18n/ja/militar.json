@@ -1,0 +1,32 @@
+{
+  "portariaApp": {
+    "militar": {
+      "home": {
+        "title": "Militars",
+        "refreshListLabel": "リストの更新",
+        "createLabel": "Militar の作成",
+        "createOrEditLabel": "Militarの作成または編集",
+        "notFound": "Militars が見つかりません。"
+      },
+      "created": "新しい Militar がID {{ param }} で作成されました。",
+      "updated": "ID {{ param }} の Militar が更新されました。",
+      "deleted": "ID {{ param }} の Militar が削除されました。",
+      "delete": {
+        "question": "Militar {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Militar"
+      },
+      "id": "ID",
+      "identidade": "Identidade",
+      "cpf": "Cpf",
+      "postoGraduacao": "Posto Graduacao",
+      "nome": "Nome",
+      "nomeGuerra": "Nome Guerra",
+      "email": "Email",
+      "foto": "Foto",
+      "posto": "Posto",
+      "om": "Om"
+    }
+  }
+}

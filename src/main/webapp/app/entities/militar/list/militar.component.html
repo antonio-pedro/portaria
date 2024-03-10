@@ -1,0 +1,184 @@
+<div>
+  <h2 id="page-heading" data-cy="MilitarHeading">
+    <span jhiTranslate="portariaApp.militar.home.title">Militars</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="portariaApp.militar.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-militar"
+        [routerLink]="['/militar/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="portariaApp.militar.home.createLabel">Criar novo Militar</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (militars?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="portariaApp.militar.home.notFound">Nenhum Militar encontrado</span>
+    </div>
+  }
+
+  @if (militars && militars.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">Código</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="identidade">
+              <div class="d-flex">
+                <span jhiTranslate="portariaApp.militar.identidade">Identidade</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cpf">
+              <div class="d-flex">
+                <span jhiTranslate="portariaApp.militar.cpf">Cpf</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="postoGraduacao">
+              <div class="d-flex">
+                <span jhiTranslate="portariaApp.militar.postoGraduacao">Posto Graduacao</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="nome">
+              <div class="d-flex">
+                <span jhiTranslate="portariaApp.militar.nome">Nome</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="nomeGuerra">
+              <div class="d-flex">
+                <span jhiTranslate="portariaApp.militar.nomeGuerra">Nome Guerra</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="email">
+              <div class="d-flex">
+                <span jhiTranslate="portariaApp.militar.email">Email</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="foto">
+              <div class="d-flex">
+                <span jhiTranslate="portariaApp.militar.foto">Foto</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="posto.sigla">
+              <div class="d-flex">
+                <span jhiTranslate="portariaApp.militar.posto">Posto</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="om.sigla">
+              <div class="d-flex">
+                <span jhiTranslate="portariaApp.militar.om">Om</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (militar of militars; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/militar', militar.id, 'view']">{{ militar.id }}</a>
+              </td>
+              <td>{{ militar.identidade }}</td>
+              <td>{{ militar.cpf }}</td>
+              <td>{{ militar.postoGraduacao }}</td>
+              <td>{{ militar.nome }}</td>
+              <td>{{ militar.nomeGuerra }}</td>
+              <td>{{ militar.email }}</td>
+              <td>
+                @if (militar.foto) {
+                  <a (click)="openFile(militar.foto, militar.fotoContentType)" jhiTranslate="entity.action.open">Abrir</a>
+                  <span>{{ militar.fotoContentType }}, {{ byteSize(militar.foto) }}</span>
+                }
+              </td>
+              <td>
+                @if (militar.posto) {
+                  <div>
+                    <a [routerLink]="['/posto-graduacao', militar.posto.id, 'view']">{{ militar.posto.sigla }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (militar.om) {
+                  <div>
+                    <a [routerLink]="['/om', militar.om.id, 'view']">{{ militar.om.sigla }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/militar', militar.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+                  </a>
+
+                  <a [routerLink]="['/militar', militar.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(militar)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (militars && militars.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

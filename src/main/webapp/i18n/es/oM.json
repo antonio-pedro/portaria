@@ -1,0 +1,27 @@
+{
+  "portariaApp": {
+    "oM": {
+      "home": {
+        "title": "OMS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo OM",
+        "createOrEditLabel": "Crear o editar OM",
+        "notFound": "Ningún OMS encontrado"
+      },
+      "created": "Un nuevo OM ha sido creado con el identificador {{ param }}",
+      "updated": "Un OM ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un OM ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar OM {{ id }}?"
+      },
+      "detail": {
+        "title": "OM"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "sigla": "Sigla",
+      "codom": "Codom",
+      "militar": "Militar"
+    }
+  }
+}

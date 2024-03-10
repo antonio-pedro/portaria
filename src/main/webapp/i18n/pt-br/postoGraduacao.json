@@ -1,0 +1,26 @@
+{
+  "portariaApp": {
+    "postoGraduacao": {
+      "home": {
+        "title": "Posto Graduacaos",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Posto Graduacao",
+        "createOrEditLabel": "Criar ou editar Posto Graduacao",
+        "notFound": "Nenhum Posto Graduacao encontrado"
+      },
+      "created": "Um novo Posto Graduacao foi criado com o identificador {{ param }}",
+      "updated": "Um Posto Graduacao foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Posto Graduacao foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Posto Graduacao {{ id }}?"
+      },
+      "detail": {
+        "title": "Posto Graduacao"
+      },
+      "id": "ID",
+      "descricao": "Descricao",
+      "sigla": "Sigla",
+      "militar": "Militar"
+    }
+  }
+}

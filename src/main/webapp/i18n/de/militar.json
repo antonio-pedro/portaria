@@ -1,0 +1,32 @@
+{
+  "portariaApp": {
+    "militar": {
+      "home": {
+        "title": "Militars",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Militar erstellen",
+        "createOrEditLabel": "Militar erstellen oder bearbeiten",
+        "notFound": "Keine Militars gefunden"
+      },
+      "created": "Militar erstellt mit ID {{ param }}",
+      "updated": "Militar aktualisiert mit ID {{ param }}",
+      "deleted": "Militar gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Militar {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Militar"
+      },
+      "id": "ID",
+      "identidade": "Identidade",
+      "cpf": "Cpf",
+      "postoGraduacao": "Posto Graduacao",
+      "nome": "Nome",
+      "nomeGuerra": "Nome Guerra",
+      "email": "Email",
+      "foto": "Foto",
+      "posto": "Posto",
+      "om": "Om"
+    }
+  }
+}

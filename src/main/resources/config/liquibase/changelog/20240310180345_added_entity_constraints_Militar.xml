@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Militar.
+    -->
+    <changeSet id="20240310180345-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="posto_id"
+                                 baseTableName="militar"
+                                 constraintName="fk_militar__posto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="posto"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="om_id"
+                                 baseTableName="militar"
+                                 constraintName="fk_militar__om_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="om"
+                                 />
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,32 @@
+{
+  "portariaApp": {
+    "militar": {
+      "home": {
+        "title": "Militars",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Militar",
+        "createOrEditLabel": "Criar ou editar Militar",
+        "notFound": "Nenhum Militar encontrado"
+      },
+      "created": "Um novo Militar foi criado com o identificador {{ param }}",
+      "updated": "Um Militar foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Militar foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Militar {{ id }}?"
+      },
+      "detail": {
+        "title": "Militar"
+      },
+      "id": "ID",
+      "identidade": "Identidade",
+      "cpf": "Cpf",
+      "postoGraduacao": "Posto Graduacao",
+      "nome": "Nome",
+      "nomeGuerra": "Nome Guerra",
+      "email": "Email",
+      "foto": "Foto",
+      "posto": "Posto",
+      "om": "Om"
+    }
+  }
+}

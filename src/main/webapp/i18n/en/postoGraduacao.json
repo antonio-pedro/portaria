@@ -1,0 +1,26 @@
+{
+  "portariaApp": {
+    "postoGraduacao": {
+      "home": {
+        "title": "Posto Graduacaos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Posto Graduacao",
+        "createOrEditLabel": "Create or edit a Posto Graduacao",
+        "notFound": "No Posto Graduacaos found"
+      },
+      "created": "A new Posto Graduacao is created with identifier {{ param }}",
+      "updated": "A Posto Graduacao is updated with identifier {{ param }}",
+      "deleted": "A Posto Graduacao is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Posto Graduacao {{ id }}?"
+      },
+      "detail": {
+        "title": "Posto Graduacao"
+      },
+      "id": "ID",
+      "descricao": "Descricao",
+      "sigla": "Sigla",
+      "militar": "Militar"
+    }
+  }
+}

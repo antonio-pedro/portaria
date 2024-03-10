@@ -48,6 +48,11 @@ public class CacheConfiguration {
             createCache(cm, br.mil.eb.cip.domain.User.class.getName());
             createCache(cm, br.mil.eb.cip.domain.Authority.class.getName());
             createCache(cm, br.mil.eb.cip.domain.User.class.getName() + ".authorities");
+            createCache(cm, br.mil.eb.cip.domain.OM.class.getName());
+            createCache(cm, br.mil.eb.cip.domain.OM.class.getName() + ".militars");
+            createCache(cm, br.mil.eb.cip.domain.PostoGraduacao.class.getName());
+            createCache(cm, br.mil.eb.cip.domain.PostoGraduacao.class.getName() + ".militars");
+            createCache(cm, br.mil.eb.cip.domain.Militar.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

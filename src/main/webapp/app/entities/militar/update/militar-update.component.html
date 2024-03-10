@@ -1,0 +1,225 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-militar-heading" data-cy="MilitarCreateUpdateHeading" jhiTranslate="portariaApp.militar.home.createOrEditLabel">
+        Criar ou editar Militar
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="portariaApp.militar.identidade" for="field_identidade">Identidade</label>
+          <input
+            type="number"
+            class="form-control"
+            name="identidade"
+            id="field_identidade"
+            data-cy="identidade"
+            formControlName="identidade"
+          />
+          @if (editForm.get('identidade')!.invalid && (editForm.get('identidade')!.dirty || editForm.get('identidade')!.touched)) {
+            <div>
+              @if (editForm.get('identidade')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">O campo é obrigatório.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('identidade')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >Este campo é do tipo numérico.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="portariaApp.militar.cpf" for="field_cpf">Cpf</label>
+          <input type="number" class="form-control" name="cpf" id="field_cpf" data-cy="cpf" formControlName="cpf" />
+          @if (editForm.get('cpf')!.invalid && (editForm.get('cpf')!.dirty || editForm.get('cpf')!.touched)) {
+            <div>
+              @if (editForm.get('cpf')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">O campo é obrigatório.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!editForm.get('cpf')?.errors?.number" jhiTranslate="entity.validation.number"
+                >Este campo é do tipo numérico.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="portariaApp.militar.postoGraduacao" for="field_postoGraduacao">Posto Graduacao</label>
+          <input
+            type="text"
+            class="form-control"
+            name="postoGraduacao"
+            id="field_postoGraduacao"
+            data-cy="postoGraduacao"
+            formControlName="postoGraduacao"
+          />
+          @if (
+            editForm.get('postoGraduacao')!.invalid && (editForm.get('postoGraduacao')!.dirty || editForm.get('postoGraduacao')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('postoGraduacao')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">O campo é obrigatório.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="portariaApp.militar.nome" for="field_nome">Nome</label>
+          <input type="text" class="form-control" name="nome" id="field_nome" data-cy="nome" formControlName="nome" />
+          @if (editForm.get('nome')!.invalid && (editForm.get('nome')!.dirty || editForm.get('nome')!.touched)) {
+            <div>
+              @if (editForm.get('nome')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">O campo é obrigatório.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="portariaApp.militar.nomeGuerra" for="field_nomeGuerra">Nome Guerra</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nomeGuerra"
+            id="field_nomeGuerra"
+            data-cy="nomeGuerra"
+            formControlName="nomeGuerra"
+          />
+          @if (editForm.get('nomeGuerra')!.invalid && (editForm.get('nomeGuerra')!.dirty || editForm.get('nomeGuerra')!.touched)) {
+            <div>
+              @if (editForm.get('nomeGuerra')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">O campo é obrigatório.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="portariaApp.militar.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+          @if (editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)) {
+            <div>
+              @if (editForm.get('email')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">O campo é obrigatório.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="portariaApp.militar.foto" for="field_foto">Foto</label>
+          <div>
+            @if (editForm.get('foto')!.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(editForm.get('foto')!.value!, editForm.get('fotoContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Abrir</a
+                ><br />
+                <span class="pull-start">{{ editForm.get('fotoContentType')!.value }}, {{ byteSize(editForm.get('foto')!.value!) }}</span>
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ foto: undefined, fotoContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times"></fa-icon>
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_foto"
+              data-cy="foto"
+              (change)="setFileData($event, 'foto', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="foto" id="field_foto" data-cy="foto" formControlName="foto" />
+          <input type="hidden" class="form-control" name="fotoContentType" id="field_fotoContentType" formControlName="fotoContentType" />
+          @if (editForm.get('foto')!.invalid && (editForm.get('foto')!.dirty || editForm.get('foto')!.touched)) {
+            <div>
+              @if (editForm.get('foto')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">O campo é obrigatório.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="portariaApp.militar.posto" for="field_posto">Posto</label>
+          <select
+            class="form-control"
+            id="field_posto"
+            data-cy="posto"
+            name="posto"
+            formControlName="posto"
+            [compareWith]="comparePostoGraduacao"
+          >
+            @if (editForm.get(['posto'])!.value == null) {
+              <option [ngValue]="null" selected></option>
+            }
+            @for (postoGraduacaoOption of postoGraduacaosSharedCollection; track $index) {
+              <option [ngValue]="postoGraduacaoOption">{{ postoGraduacaoOption.sigla }}</option>
+            }
+          </select>
+        </div>
+        @if (editForm.get(['posto'])!.invalid && (editForm.get(['posto'])!.dirty || editForm.get(['posto'])!.touched)) {
+          <div>
+            @if (editForm.get(['posto'])?.errors?.required) {
+              <small class="form-text text-danger" jhiTranslate="entity.validation.required">O campo é obrigatório.</small>
+            }
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="portariaApp.militar.om" for="field_om">Om</label>
+          <select class="form-control" id="field_om" data-cy="om" name="om" formControlName="om" [compareWith]="compareOM">
+            @if (editForm.get(['om'])!.value == null) {
+              <option [ngValue]="null" selected></option>
+            }
+            @for (oMOption of oMSSharedCollection; track $index) {
+              <option [ngValue]="oMOption">{{ oMOption.sigla }}</option>
+            }
+          </select>
+        </div>
+        @if (editForm.get(['om'])!.invalid && (editForm.get(['om'])!.dirty || editForm.get(['om'])!.touched)) {
+          <div>
+            @if (editForm.get(['om'])?.errors?.required) {
+              <small class="form-text text-danger" jhiTranslate="entity.validation.required">O campo é obrigatório.</small>
+            }
+          </div>
+        }
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
